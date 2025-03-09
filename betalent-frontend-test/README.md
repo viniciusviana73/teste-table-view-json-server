@@ -1,54 +1,102 @@
-# React + TypeScript + Vite
+# Sobre
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Bem-vindo(a)!** Este projeto foi desenvolvido durante um teste prático na BeTalent. O objetivo do teste consiste em montar uma interface interativa que exiba os dados dos funcionários, sendo estes obtidos através de uma API simulada usando `json-server`.
 
-Currently, two official plugins are available:
+A aplicação faz a consulta, lista os dados e permite pesquisar por nome, cargo e telefone, além de formatar as datas e os números de telefone de forma amigável. O design é responsivo, seguindo o protótipo definido no Figma.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## Dependências
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **Node.js** (v14 ou superior)
+- **npm** ou **Yarn** (gerenciamento / instalação de dependências)
+- **json-server** (para simulação da API)
+- **React.js** com **TypeScript**
+- **Tailwind CSS**
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+---
+
+## Estrutura do Projeto
+
+A estrutura do projeto segue uma organização clara e modular:
+
+```
+.
+├── src/
+│   ├── assets/
+│   │   └── img/
+│   │       └── betalent-logo.svg
+│   ├── components/
+│   │   ├── header/
+│   │   │   └── Header.tsx
+│   │   ├── table/
+│   │   │   └── Table.tsx
+│   │   └── Loading.tsx
+│   ├── services/
+│   │   └── api.ts
+│   ├── styles/
+│   │   ├── App.css
+│   │   └── loading.css
+│   ├── types/
+│   │   ├── Employee.ts
+│   │   └── TableRowProps.ts
+│   ├── utils/
+│   │   ├── formatPhone.ts
+│   ├── App.tsx
+│   └── main.tsx
+└── db/db.json
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Instalação
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+1. **Clone o repositório:**
+
+   ```bash
+   git clone https://github.com/viniciusviana73/teste-table-view-json-server
+   ```
+
+2. **Navegue até o diretório do projeto:**
+
+   ```bash
+   cd teste-table-view-json-server/betalent-frontend-test
+   ```
+
+3. **Instale as dependências:**
+
+   ```bash
+   npm install
+   # ou
+   yarn install
+   ```
+
+---
+
+## Execução
+
+1. **Inicie o json-server para simular a API:**
+
+  No diretório do db.json (teste-table-view-json-server/db), execute:
+
+   ```bash
+   npx json-server --watch db.json --port 3000
+   ```
+   
+   ou, utilizando yarn:
+   
+   ```bash
+   yarn json-server --watch db.json --port 3000
+   ```
+
+2. **Execute a aplicação:**
+
+  No diretório do front-end (teste-table-view-json-server/betalent-frontend-test), execute:
+
+   ```bash
+   npm run dev
+   # ou
+   yarn run dev
+   ```
+
+   A aplicação estará disponível em [http://localhost:5173](http://localhost:5173)
