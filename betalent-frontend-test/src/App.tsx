@@ -1,13 +1,12 @@
 import './styles/App.css'
+import Header from './components/header/Header';
+import Table from './components/table/Table';
 
 function App() {
   return (
     <>
-      <div>
-        <h1 className="text-3xl font-bold">
-          Hello world!
-        </h1>
-      </div>
+      <Header></Header>
+      <Table></Table>
     </>
   )
 }
